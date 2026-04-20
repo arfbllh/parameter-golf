@@ -65,7 +65,6 @@ SEED=42 \
   records/track_10min_16mb/2026-04-20_MultiTrick_EDFusion_HessianSDClip_BestOfN/train_gpt.py
 ```
 
-**2× RTX 4090 (smaller batch):** `WORLD_SIZE` must divide 8. Lower `TRAIN_BATCH_TOKENS` / `VAL_BATCH_SIZE` so each rank fits in VRAM; keep `TRAIN_BATCH_TOKENS` divisible by `WORLD_SIZE × (8 // WORLD_SIZE) × TRAIN_SEQ_LEN`.
 
 ```bash
 SEED=42 \
