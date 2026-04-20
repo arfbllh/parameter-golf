@@ -49,11 +49,10 @@ Training defaults: `DATA_PATH=./data/datasets/fineweb10B_sp8192`, `TOKENIZER_PAT
 
 ## Run
 
-From the **root of this repository**:
-
 ```bash
 pip install brotli zstandard sentencepiece
-
+```
+```
 SEED=42 \
   QK_GAIN_INIT=5.28 \
   ED_FUSION_ENABLED=1 ED_FUSION_INIT=-4.0 \
@@ -63,18 +62,5 @@ SEED=42 \
   TTT_ENABLED=1 TTT_LR=0.005 TTT_EPOCHS=3 \
   torchrun --standalone --nproc_per_node=8 \
   records/track_10min_16mb/2026-04-20_MultiTrick_EDFusion_HessianSDClip_BestOfN/train_gpt.py
-```
-
-
-```bash
-SEED=42 \
-  QK_GAIN_INIT=5.28 \
-  ED_FUSION_ENABLED=1 ED_FUSION_INIT=-4.0 \
-  MATRIX_HESSIAN_ALPHA=0.25 \
-  GPTQ_AR_SELF_CALIB_FRAC=0.5 GPTQ_AR_TOPK=64 \
-  COMPRESSOR=auto \
-  TTT_ENABLED=1 TTT_LR=0.005 TTT_EPOCHS=3 \
-  MAX_WALLCLOCK_SECONDS=2400 \
-  torchrun --standalone --nproc_per_node=8 train_gpt.py
 ```
 
